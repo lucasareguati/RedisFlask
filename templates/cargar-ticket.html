@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Cargar ticket</title>
+
+
+</head>
+<body>
+
+    <div class="container">        
+        <div class="container col-5">
+        
+        <h1>Cargar ticket</h1>
+        <form action="/cargarticket" method="post">
+
+            <div class="form-group">
+                <label for="entrada">Entrada</label>
+                <input type="text" class="form-control" id="entrada" name="entrada" placeholder="Titulo de la entrada">
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" placeholder="u$d">
+            </div>
+        
+            <div class="float-right">
+                    <a href="/" type="button" class="btn btn-danger">Cancelar</a>
+                
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+        </div>            
+    </form>
+    </div>
+
+</body>
+</html>

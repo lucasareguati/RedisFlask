@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+</head>
+<body>
+    
+  
+    
+    <div class="container col-7">
+            <h1>Tickets</h1>
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Entrada</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Operacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for entrada in entradas %}
+              <tr>
+                <th>{{entrada[0]}}</th>
+                <th scope="row">{{entrada[1][2]}}</th>
+                <td>{{entrada[1][1]}}</td>
+                <td>u$d {{entrada[1][0]}}</td>               
+                <td>
+                  <form action="/" method="post">
+                    <input type="text" name="llave" id="llave" value="{{entrada[0]}}" style="display:none">
+                    <input type="text" name="entrada" id="entrada" value="{{entrada[1][2]}}" style="display:none">
+                    <input type="number" name="precio" id="precio" value="{{entrada[1][0]}}" style="display:none">
+                
+                {% if entrada[1][1] == 'Disponible' %}
+                <button type="submit" class="btn btn-warning">Reservar</button>
+
+                {% endif %}
+
+                {% if entrada[1][1] == 'Reservado' %}
+                <!--<button type="submit" class="btn btn-success">Comprar</button>-->
+                <a href="/comprarentrada/{{entrada[0]}}" class="btn btn-success">Pagar </a>
+
+                {% endif %}
+
+                {% if entrada[1][1] == 'Vendido' %}
+                <button type="text" class="btn btn-dark" disabled>Vendida</button>
+
+                {% endif %}
+                </form>
+                
+              </td>
+              </tr>
+
+              {% endfor %}
+              
+            </tbody>
+          </table>
+    </div>
+  
+    <div class="container">
+      <a href="/cargarticket"  type="button" class="btn btn-primary btn-lg btn-block">Cargar entrada</a>
+
+    </div>
+  
+
+  
+</body>
+</html>
